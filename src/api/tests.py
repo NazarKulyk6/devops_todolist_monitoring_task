@@ -235,3 +235,4 @@ class MetricsTests(APITestCase):
         content = response.content.decode("utf-8")
         self.assertIn('todoapp_http_requests_total{method="GET"}', content)
         self.assertIn('todoapp_http_requests_total{method="POST"}', content)
+        self.assertIn("todoapp_http_requests_counters_created", content)

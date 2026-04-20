@@ -7,6 +7,6 @@ class RequestMetricsMiddleware:
 
     def __call__(self, request):
         response = self.get_response(request)
-        if request.path != "/metrics":
+        if not request.path.startswith("/metrics"):
             track_http_request(request.method)
         return response
